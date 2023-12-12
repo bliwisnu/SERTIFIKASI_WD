@@ -24,11 +24,13 @@ Route::get('/', function () {
     $countUsers = VerifModel::count();
     $allUsers = VerifModel::all();
     return view('dashboard', compact(['countUsers','allUsers']));
-});
+})->middleware('auth');
 
 Route::get('/login', function () {
     return view('verif.login');
-});
+})->name('login');
+
+Route::get('/logout', [VerifController::class,'logout'] );
 
 Route::get('/forgetPassword', function () {
     return view('verif.forgetPassword');

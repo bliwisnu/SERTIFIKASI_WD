@@ -62,4 +62,9 @@ class VerifController extends Controller
         ]);
         return redirect("/login")->with('success', 'Password berhasil diubah!');
     }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login');
+    }
 }
