@@ -10,7 +10,7 @@
                 <a href="#" class="nav-link dropdown-toggle text-success" data-bs-toggle="dropdown"><i class="fa fa-tools me-2 text-success"></i>Kategori</a>
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="/daftarKategori" class="dropdown-item">Tambah Kategori</a>
-                    <a href="/login" class="dropdown-item">Tambah Alat</a>
+                    <a href="/daftarBarang" class="dropdown-item">Tambah Alat</a>
                 </div>
             </div>
             <div class="nav-item dropdown">

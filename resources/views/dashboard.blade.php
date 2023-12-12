@@ -40,7 +40,7 @@
             <div class="row g-4">
                 <div class="col-sm-6 col-xl-3">
                     <div class="text-center bg-light rounded align-items-center justify-content-between p-2">
-                        <p class="text-dark">Total user
+                        <p class="text-dark">Total User
                         </p>
                         <span class="text-success fw-bold fs-1">{{ $countUsers }}</span>
                     </div>
@@ -68,7 +68,7 @@
                                     <tr>
                                         <td>{{ $users -> username }}</td>
                                         <td>{{ $users -> email }}</td>
-                                        @if ($users -> role_user === 1)
+                                        @if ($users -> role_user === 0)
                                         <td>Member</td>
                                         @else($users -> role_user === 1)
                                         <td>Admin</td>

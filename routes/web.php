@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AlatController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\VerifController;
+use App\Models\AlatModel;
 use App\Models\Kategori;
 use App\Models\User;
 use App\Models\VerifModel;
@@ -39,6 +41,16 @@ Route::get('/tambahKategori', function () {
 Route::get('/daftarKategori', function () {
     $semuaKategori = Kategori::all();
     return view('kategori.daftarKategori', compact(['semuaKategori']));
+});
+
+Route::get('/tambahBarang', function () {
+    return view('barang.tambahBarang');
+});
+Route::post('/tambahBarang/store', [AlatController::class, 'tambahBarangStore']);
+
+Route::get('/daftarBarang', function () {
+    $semuaBarang = AlatModel::all();
+    return view('barang.daftarBarang', compact(['semuaBarang']));
 });
 
 Route::get('/register', [VerifController::class,'registerPage']);
