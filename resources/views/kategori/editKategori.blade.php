@@ -31,52 +31,21 @@
             </nav>
             <!-- Navbar End -->
 
-
-            <!-- Sale & Revenue Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="text-center bg-light rounded align-items-center justify-content-between p-2">
-                            <p class="text-dark">Total user
-                            </p>
-                            <span class="text-success fw-bold fs-1">{{ $countUsers }}</span>
-                        </div>
-                    </div>
-            <!-- Sale & Revenue End -->
-
-
             <!-- Recent Sales Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="bg-light text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Semua User</h6>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
-                            <thead>
-                                <tr class="text-dark">
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Role</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ( $allUsers as $users )
-                                <tr>
-                                    <td>{{ $users -> username }}</td>
-                                    <td>{{ $users -> email }}</td>
-                                    @if ($users -> role_user === 0)
-                                        <td>Member</td>
-                                        @else($users -> role_user === 1)
-                                        <td>Admin</td>
-                                    @endif
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a>
-                                    <a class="btn btn-sm btn-danger" href="">Delete</a></td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                <div class="bg-light rounded p-4">
+                    <div class=" mb-4">
+                        <div class="mb-3">
+                            <label for="exampleInput" class="form-label text-start">Edit Kategori</label>
+                            <input class="form-control" name="jenis_alat" id="exampleInput"
+                                aria-describedby="kategori">
+                        </div>
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-success">Edit</button>
+                        </div>
+                        {{-- <form action="/tambahKategori/store" method="POST">
+                            @csrf
+                        </form> --}}
                     </div>
                 </div>
             </div>
@@ -96,4 +65,3 @@
         </div>
         <!-- Content End -->
     </div>
-

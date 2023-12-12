@@ -35,20 +35,26 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Recent User</h6>
-                        <a href="">Show All</a>
+                        <h6 class="mb-0">Semua Kategori</h6>
+                        <a class="btn btn-md btn-success" href="/tambahKategori">Tambah Kategori</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table text-start align-middle table-bordered table-hover mb-0">
                             <thead>
                                 <tr class="text-dark">
-                                    <th scope="col"></th>
-                                    <th scope="col">Email</th>
+                                    <th scope="col">Nama Kategori</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @foreach ($semuaKategori as $semuaKategori )
+                                <tr>
+                                    <td>{{ $semuaKategori-> jenis_alat }}</td>
+                                    <td><a class="btn btn-sm btn-warning" href="/editKategori/{{ $semuaKategori-> id }}">Edit</a>
+                                        <a class="btn btn-sm btn-danger" href="/hapusKategori/{{ $semuaKategori->id }}">Delete</a>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

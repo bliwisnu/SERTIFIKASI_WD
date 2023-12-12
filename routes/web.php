@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\VerifController;
+use App\Models\Kategori;
 use App\Models\User;
 use App\Models\VerifModel;
 use Illuminate\Support\Facades\Route;
@@ -35,8 +36,15 @@ Route::get('/tambahKategori', function () {
     return view('kategori.tambahKategori');
 });
 
+Route::get('/daftarKategori', function () {
+    $semuaKategori = Kategori::all();
+    return view('kategori.daftarKategori', compact(['semuaKategori']));
+});
+
 Route::get('/register', [VerifController::class,'registerPage']);
 Route::post('/register/store', [VerifController::class, 'registerStore']);
 Route::post('/login/store', [VerifController::class, 'loginStore']);
 
 Route::post('/tambahKategori/store', [KategoriController::class,'tambahKategori']);
+Route::get('/editKategori/{id}', [KategoriController::class, "editKategori_page"]);
+Route::get('/hapusKategori/{id}', [KategoriController::class, "destroyKategori"]);
