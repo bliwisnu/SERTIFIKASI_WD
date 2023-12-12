@@ -24,7 +24,7 @@ class VerifController extends Controller
             'password' => Hash::make($request->password),
             'remember_token' => Str::random(60)
         ]);
-        return redirect('/')->with('successRegist', 'Akunmu sukses didaftarkan.');
+        return redirect('/register')->with('successRegist', 'Akunmu sukses didaftarkan.');
     }
 
     function loginStore(Request $request)

@@ -32,7 +32,7 @@
                             </div>
                             <button type="submit" class="btn btn-success py-3 w-100 mb-4">Sign In</button>
                         </form>
-                        <p class="text-center mb-0">Don't have an Account? <a class="text-success" href="">Sign Up</a></p>
+                        <p class="text-center mb-0">Don't have an Account? <a class="text-success" href="/register">Sign Up</a></p>
                     </div>
                 </div>
             </div>

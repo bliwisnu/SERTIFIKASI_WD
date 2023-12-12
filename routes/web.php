@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\VerifController;
+use App\Models\User;
+use App\Models\VerifModel;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $countUsers = VerifModel::count();
+    $allUsers = VerifModel::all();
+    return view('dashboard', compact(['countUsers','allUsers']));
 });
 
 Route::get('/login', function () {
@@ -26,8 +31,12 @@ Route::get('/forgetPassword', function () {
     return view('verif.forgetPassword');
 });
 
-Route::get('/register', [VerifController::class,'registerPage']);
+Route::get('/tambahKategori', function () {
+    return view('kategori.tambahKategori');
+});
 
+Route::get('/register', [VerifController::class,'registerPage']);
 Route::post('/register/store', [VerifController::class, 'registerStore']);
 Route::post('/login/store', [VerifController::class, 'loginStore']);
 
+Route::post('/tambahKategori/store', [KategoriController::class,'tambahKategori']);
