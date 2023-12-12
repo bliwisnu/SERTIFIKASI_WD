@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VerifController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', function () {
+    return view('verif.login');
+});
+
+Route::get('/forgetPassword', function () {
+    return view('verif.forgetPassword');
+});
+
+Route::get('/register', [VerifController::class,'registerPage']);
+
+Route::post('/register/store', [VerifController::class, 'registerStore']);
+Route::post('/login/store', [VerifController::class, 'loginStore']);
+
