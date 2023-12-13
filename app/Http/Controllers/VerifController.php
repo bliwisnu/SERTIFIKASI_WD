@@ -28,7 +28,8 @@ class VerifController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'remember_token' => Str::random(60)
+            'remember_token' => Str::random(60),
+            'role_user' => 0
         ]);
         return redirect('/register')->with('successRegist', 'Akunmu sukses didaftarkan.');
     }

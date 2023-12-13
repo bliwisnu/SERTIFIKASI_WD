@@ -22,6 +22,9 @@
     */
 
     Route::group(['middleware' => 'guest'], function () {
+        Route::get('/', function () {
+            return redirect('login');
+        });
         Route::get('/login', function () {
             return view('verif.login');
         })->name('login');
