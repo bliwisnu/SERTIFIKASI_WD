@@ -43,7 +43,7 @@ class VerifController extends Controller
                 $response->withCookie(Cookie("alat-alat", "alat-alat", $time));
                 return $response;
             } else {
-                return redirect('/')->with('berhasilLogin', 'Selamat Datang di AGRORENT');
+                return redirect('/dashboard')->with('berhasilLogin', 'Selamat Datang di AGRORENT');
             }
         } else {
             return redirect()->back()->with('wrongAuth', 'Email atau Password tidak sesuai');

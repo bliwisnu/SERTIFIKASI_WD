@@ -9,7 +9,16 @@
 
 ## Kelompok : Optima
 
+## Project : AgroRent (Penyewaan alat pertanian)
+
 ## Anggota Kelompok
+
+Nama Kelompok  | NIM
+------------- | -------------
+I Kadek Wisnu Kusuma Wardana  | 1202200081
+Abidzar Zulfa Arifa Kusyono  | 1202204331
+
+## List Fiture
 
 Nama Kelompok  | NIM
 ------------- | -------------
