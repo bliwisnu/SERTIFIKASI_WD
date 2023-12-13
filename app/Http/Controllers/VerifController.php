@@ -74,7 +74,7 @@ class VerifController extends Controller
         VerifModel::find($id)->delete();
         return redirect()->back();
     }
-    public function forget( Request $request )
+    public function forget(Request $request)
     {
         // Validasi input
         $request->validate([
@@ -92,5 +92,10 @@ class VerifController extends Controller
             'password' => Hash::make($request->password),
         ]);
         return redirect("/login")->with('success', 'Password berhasil diubah!');
+    }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login');
     }
 }
