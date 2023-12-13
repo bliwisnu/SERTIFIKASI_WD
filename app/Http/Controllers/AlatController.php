@@ -17,4 +17,9 @@ class AlatController extends Controller
         $editKategori = AlatModel::find($id);
         return view('barang.editBarang', compact(['editBarang']));
     }
+    public function destroy($id)
+    {
+        AlatModel::find($id)->delete();
+        return redirect()->back();
+    }
 }

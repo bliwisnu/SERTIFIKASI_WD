@@ -4,7 +4,6 @@
 <div class="container-xxl position-relative bg-white d-flex p-0">
     @include('layouts.loading')
     @include('layouts.sidebar')
-
     <!-- Content Start -->
     <div class="content">
         <!-- Navbar Start -->
@@ -74,7 +73,7 @@
                                         <td>Admin</td>
                                         @endif
                                         <td><a class="btn btn-sm btn-primary" href="">Detail</a>
-                                            <a class="btn btn-sm btn-danger" href="">Delete</a>
+                                            <a class="btn btn-sm btn-danger" href="/delete/{{ $users->id }}">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach

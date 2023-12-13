@@ -18,6 +18,12 @@ class VerifController extends Controller
 
     public function registerStore(Request $request)
     {
+        $this->validate($request, [
+            'password' => 'required|min:5',
+            'username' => 'required'
+        ], [
+            'username.required' => "Field nama wajib di isi."
+        ]);
         VerifModel::create([
             'username' => $request->username,
             'email' => $request->email,
@@ -49,6 +55,31 @@ class VerifController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required|min:5|confirmed',
+        ]);
+
+        // Ambil user berdasarkan email
+        $user = VerifModel::where("email", $request->email)->first();
+        if (!$user) {
+            return redirect()->back()->with('error', 'Email tidak ditemukan.');
+        }
+
+        $user->update([
+            'password' => Hash::make($request->password),
+        ]);
+        return redirect("/login")->with('success', 'Password berhasil diubah!');
+    }
+
+    public function delete_user($id)
+    {
+        VerifModel::find($id)->delete();
+        return redirect()->back();
+    }
+    public function forget( Request $request )
+    {
+        // Validasi input
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:5',
         ]);
 
         // Ambil user berdasarkan email

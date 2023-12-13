@@ -23,8 +23,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $countUsers = VerifModel::count();
     $allUsers = VerifModel::all();
-    return view('dashboard', compact(['countUsers','allUsers']));
+    return view('dashboard', compact(['countUsers', 'allUsers']));
 });
+
+Route::get('/delete/{id}', [VerifController::class, 'delete_user']);
 
 Route::get('/login', function () {
     return view('verif.login');
@@ -33,6 +35,8 @@ Route::get('/login', function () {
 Route::get('/forgetPassword', function () {
     return view('verif.forgetPassword');
 });
+
+Route::post('/forget/store', [VerifController::class,'forget']);
 
 Route::get('/tambahKategori', function () {
     return view('kategori.tambahKategori');
@@ -47,16 +51,23 @@ Route::get('/tambahBarang', function () {
     return view('barang.tambahBarang');
 });
 Route::post('/tambahBarang/store', [AlatController::class, 'tambahBarangStore']);
+Route::post('/tambahBarang/store', [AlatController::class, 'tambahBarangStore']);
+
+Route::get('/editBarang/{id}', function ($id) {
+    $detailBarang = AlatModel::find($id);
+    return view('barang.editBarang', compact(['detailBarang']));
+});
 
 Route::get('/daftarBarang', function () {
     $semuaBarang = AlatModel::all();
     return view('barang.daftarBarang', compact(['semuaBarang']));
 });
+Route::get('/hapusBarang/{id}', [AlatController::class, 'destroy']);
 
-Route::get('/register', [VerifController::class,'registerPage']);
+Route::get('/register', [VerifController::class, 'registerPage']);
 Route::post('/register/store', [VerifController::class, 'registerStore']);
 Route::post('/login/store', [VerifController::class, 'loginStore']);
 
-Route::post('/tambahKategori/store', [KategoriController::class,'tambahKategori']);
+Route::post('/tambahKategori/store', [KategoriController::class, 'tambahKategori']);
 Route::get('/editKategori/{id}', [KategoriController::class, "editKategori_page"]);
 Route::get('/hapusKategori/{id}', [KategoriController::class, "destroyKategori"]);

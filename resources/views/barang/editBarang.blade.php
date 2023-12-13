@@ -33,34 +33,28 @@
 
             <!-- Recent Sales Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="bg-light text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Semua Alat</h6>
-                        <a class="btn btn-md btn-success" href="/tambahBarang">Tambah Alat</a>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
-                            <thead>
-                                <tr class="text-dark">
-                                    <th scope="col">Nama Alat</th>
-                                    <th scope="col">Harga</th>
-                                    <th scope="col">Gambar</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($semuaBarang as $barang)
-                                <tr>
-                                    <td>{{ $barang->nama_alat}}</td>
-                                    <td>{{ $barang->harga_alat }}</td>
-                                    <td>{{ $barang->input_gambar }}</td>
-                                    <td><a class="btn btn-sm btn-warning" href="/editBarang/{{ $barang->id }}">Edit</a>
-                                        <a class="btn btn-sm btn-danger" href="/hapusBarang/{{ $barang->id }}">Delete</a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                <div class="bg-light rounded p-4">
+                    <div class=" mb-4">
+                        <form action="/editBarang/store" method="POST">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="exampleInput" class="form-label text-start">Nama Alat</label>
+                                <input class="form-control" name="nama_alat" id="exampleInput"
+                                    aria-describedby="kategori">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInput" class="form-label text-start">Harga</label>
+                                <input class="form-control" name="harga_alat" id="exampleInput"
+                                    aria-describedby="kategori">
+                            </div>
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Gambar</label>
+                                <input class="form-control" type="file" name="input_gambar" id="formFile">
+                            </div>
+                            <div class="mt-3">
+                                <button type="submit" class="btn btn-success">Edit Barang</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
