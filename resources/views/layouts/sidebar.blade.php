@@ -13,13 +13,6 @@
                     <a href="/daftarBarang" class="dropdown-item">Tambah Alat</a>
                 </div>
             </div>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle text-success" data-bs-toggle="dropdown"><i class="bi bi-box-arrow-right fs-4"></i></i>Auth</a>
-                <div class="dropdown-menu bg-transparent border-0">
-                    <a href="/login" class="dropdown-item">Sign In</a>
-                    <a href="/login" class="dropdown-item">Log Out</a>
-                </div>
-            </div>
         </div>
     </nav>
 </div>

@@ -14,9 +14,10 @@ class DashboardController extends Controller
             $allAlat = AlatModel::all();
             return view('user.DashboardUser', compact(['allAlat']));
         } elseif (auth()->user()->role_user == 1) {
-            $countUsers = VerifModel::count();
+            $countMember = VerifModel::where('role_user', 0)->count();
+            $countAdmin = VerifModel::where('role_user', 1)->count();
             $allUsers = VerifModel::all();
-            return view('dashboard', compact(['countUsers', 'allUsers']));
+            return view('dashboard', compact(['countMember', 'allUsers', 'countAdmin']));
         }
     }
 }

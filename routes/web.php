@@ -3,8 +3,8 @@
     use App\Http\Controllers\AlatController;
     use App\Http\Controllers\DashboardController;
     use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\VerifController;
+    use App\Http\Controllers\ProfileController;
+    use App\Http\Controllers\VerifController;
     use App\Models\AlatModel;
     use App\Models\Kategori;
     use App\Models\User;
@@ -41,7 +41,7 @@ use App\Http\Controllers\VerifController;
 
     Route::group(['middleware' => 'auth'], function () {
 
-        // General 
+        // General
         Route::get('/delete/{id}', [VerifController::class, 'delete_user']);
         Route::get('/logout', [VerifController::class, 'logout']);
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -52,7 +52,19 @@ use App\Http\Controllers\VerifController;
             return view('user.DataPenyewaan');
         });
 
+        // Admin & Ueer
+        Route::post('/update-profile/{id}', [ProfileController::class, 'editProfile']);
+        Route::put('/update-profile/{id}', [ProfileController::class, 'editProfile']);
+
         // Admin
+        Route::get('/EditUser/{id}', [ProfileController::class, "editUserPage"]);
+        // Route::post('/update-user/{id}', [ProfileController::class,'updateUser']);
+        Route::put('/update-user/{id}', [ProfileController::class, 'updateUser']);
+
+        Route::get('/tambah/user', function () {
+            return view('user.TambahUser');
+        });
+        Route::post('/tambahUser/store', [ProfileController::class,'createUser']);
         Route::get('/tambahKategori', function () {
             return view('kategori.tambahKategori');
         });
@@ -77,6 +89,3 @@ use App\Http\Controllers\VerifController;
         Route::get('/editKategori/{id}', [KategoriController::class, "editKategori_page"]);
         Route::get('/hapusKategori/{id}', [KategoriController::class, "destroyKategori"]);
     });
-
-
-    

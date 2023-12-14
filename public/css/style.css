@@ -5,6 +5,11 @@
     --dark: #191C24;
 }
 
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+}
+
 .back-to-top {
     position: fixed;
     display: none;
