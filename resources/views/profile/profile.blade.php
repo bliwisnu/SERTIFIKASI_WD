@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Bootstrap 5.2 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
-  <!-- Link to CSS -->
-  <link rel="stylesheet" href="{{ asset('frontend/style.css') }}">
 
   <!-- Poppins Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,9 +39,9 @@
     button {
       margin-top: 20px;
     }
-
   </style>
 </head>
+
 <body>
   <div class="container-fluid container-custom">
     <div class="profile-container">
@@ -58,21 +56,17 @@
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <!-- <input type="email" class="form-control" id="email" name="email" value="{{$user['email']}}"> -->
           <input type="email" class="form-control" id="email" name="email" value="input here">
         </div>
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
-          <!-- <input type="name" class="form-control" id="name" name="name" value="{{$user['name']}}"> -->
           <input type="name" class="form-control" id="name" name="name" value="input here">
         </div>
         <button type="submit" class="btn btn-success submit-button">Update</button>
-        <!-- <a href="{{ route('logout') }}"><button type="button" class="btn btn-dark mt-3">Logout</button></a> -->
-        <a href="{{ route('logout') }}"><button type="button" class="btn btn-dark mt-3">Logout</button></a>
+        <a href="#"><button type="button" class="btn btn-dark mt-3">Logout</button></a>
       </form>
     </div>
-    <!-- <a href="{{ route('home') }}"> -->
-    <a href="./dashboard-user.html">
+    <a href="./dashboard">
       <i class="fa-solid fa-arrow-left fa-lg mt-5 mx-4"></i>
     </a>
   </div>
@@ -81,4 +75,5 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
 </body>
+
 </html>
