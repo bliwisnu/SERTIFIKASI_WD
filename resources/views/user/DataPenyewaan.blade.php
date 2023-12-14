@@ -9,7 +9,8 @@
                 <h3 class="text-success"></i>AGRORENT</h3>
             </a>
             <div class="navbar-nav w-100">
-                <a href="/" class="nav-item nav-link active text-success mb-3"><i class="fa fa-tachometer-alt me-2 text-success"></i>Dashboard</a>
+                <a href="/dashboard" class="nav-item nav-link active text-success mb-3"><i class="fa fa-tachometer-alt me-2 text-success"></i>Dashboard</a>
+                <a href="/dataPenyewaan" class="nav-item nav-link active text-success mb-3"><i class="fa fa-tachometer-alt me-2 text-success"></i>Data Penyewaan</a>
             </div>
         </nav>
     </div>
@@ -19,7 +20,7 @@
     <!-- Content Start -->
     <div class="content">
         <!-- Navbar Start -->
-        <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+        <nav class="navbar navbar-expand bg-success navbar-light sticky-top px-4 py-0">
             <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
                 <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
             </a>
@@ -46,49 +47,14 @@
         </nav>
         <!-- Header -->
         <div class="container-fluid pt-4 px-4">
-            <h2 class="header text-center text-light bg-success">
-                User Dashboard
-            </h2>
-            <div class="input-group mt-3">
-                <input type="text" class="form-control" placeholder="Cari alat..." aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-dark" type="search" id="search">Search</button>
-                <div class="dropdown">
-                    <a class="btn btn-success dropdown-toggle" href="#" role="category" id="category" data-bs-toggle="dropdown" aria-expanded="false">
-                        Category
-                    </a>
-
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </div>
-            </div>
+            <h4 class="header text-center text-light bg-success">
+               <b>DATA PENYEWAAN</b>
+            </h4>
         </div>
-        <!-- Kategori -->
         <!-- Sale & Revenue Start -->
         <div class="container-fluid pt-4 px-4">
             <div class="row g-5">
-                <!-- Card Item -->
-                <div class="container pt-4">
-                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                        @foreach ($allAlat as $alat)
-                        <div class="col">
-                            <div class="card">
-                                <img src="{{ $alat -> input_gambar }}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $alat -> nama_alat }}</h5>
-                                    <p class="card-text">{{ $alat -> harga_alat }}</p>
-                                    <a href="#" class="btn btn-dark">sewa</a>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                        <!-- Tambahkan card lainnya di sini sesuai kebutuhan -->
-                    </div>
-                </div>
-
-                <!-- Recent Sales Start -->
+                <!-- Table Penyewaan -->
                 <div class="container-fluid pt-4 px-4">
                     <div class="bg-light text-center rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
@@ -110,7 +76,7 @@
                                         <td>cangkul</td>
                                         <td>200.000</td>
                                         <td>
-                                        <input type="text" class="form-control" placeholder="Masukkan Jumlah Hari" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                            <input type="text" class="form-control" placeholder="Masukkan Jumlah Hari" aria-label="Recipient's username" aria-describedby="button-addon2">
                                         </td>
                                         <td>
                                             <button class="btn btn-dark" type="sewa" id="sewa">Sewa</button>

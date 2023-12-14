@@ -41,10 +41,18 @@ use App\Http\Controllers\VerifController;
 
     Route::group(['middleware' => 'auth'], function () {
 
+        // General 
         Route::get('/delete/{id}', [VerifController::class, 'delete_user']);
         Route::get('/logout', [VerifController::class, 'logout']);
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+        // User
         Route::get('/profile', [ProfileController::class, 'index']);
+        Route::get('/dataPenyewaan', function () {
+            return view('user.DataPenyewaan');
+        });
+
+        // Admin
         Route::get('/tambahKategori', function () {
             return view('kategori.tambahKategori');
         });
