@@ -52,6 +52,9 @@
         Route::get('/dataPenyewaan', function () {
             return view('user.DataPenyewaan');
         });
+        Route::get('/sewaAlat', function () {
+            return view('user.SewaAlat');
+        });
 
         // Admin & User
         // Route::post('/update-user/{id}', [ProfileController::class,'updateUser']);

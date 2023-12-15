@@ -10,6 +10,7 @@
             </a>
             <div class="navbar-nav w-100">
                 <a href="/dashboard" class="nav-item nav-link active text-success mb-3"><i class="fa fa-tachometer-alt me-2 text-success"></i>Dashboard</a>
+                <a href="/sewaAlat" class="nav-item nav-link active text-success mb-3"><i class="fa fa-tachometer-alt me-2 text-success"></i>Sewa Alat</a>
                 <a href="/dataPenyewaan" class="nav-item nav-link active text-success mb-3"><i class="fa fa-tachometer-alt me-2 text-success"></i>Data Penyewaan</a>
             </div>
         </nav>
@@ -77,7 +78,7 @@
                         @foreach ($allAlat as $alat)
                         <div class="col">
                             <div class="card">
-                                <img src="{{ $alat -> input_gambar }}" class="card-img-top" alt="...">
+                                <img src="img/alat/{{ $alat -> input_gambar }}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $alat -> nama_alat }}</h5>
                                     <p class="card-text">{{ $alat -> harga_alat }}</p>
@@ -87,70 +88,6 @@
                         </div>
                         @endforeach
                         <!-- Tambahkan card lainnya di sini sesuai kebutuhan -->
-                    </div>
-                </div>
-
-                <!-- Recent Sales Start -->
-                <div class="container-fluid pt-4 px-4">
-                    <div class="bg-light text-center rounded p-4">
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h6 class="mb-0">Sewa Alat</h6>
-                            <a href="">Show All</a>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table text-start align-middle table-bordered table-hover mb-0">
-                                <thead>
-                                    <tr class="text-dark">
-                                        <th scope="col">Nama Alat</th>
-                                        <th scope="col">Harga/hari</th>
-                                        <th scope="col">Durasi/hari</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>cangkul</td>
-                                        <td>200.000</td>
-                                        <td>
-                                            <input type="text" class="form-control" placeholder="Masukkan Jumlah Hari" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-dark" type="sewa" id="sewa">Sewa</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>cangkul</td>
-                                        <td>200.000</td>
-                                        <td>
-                                            <input type="text" class="form-control" placeholder="Masukkan Jumlah Hari" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-dark" type="sewa" id="sewa">Sewa</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>cangkul</td>
-                                        <td>200.000</td>
-                                        <td>
-                                            <input type="text" class="form-control" placeholder="Masukkan Jumlah Hari" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-dark" type="sewa" id="sewa">Sewa</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>cangkul</td>
-                                        <td>200.000</td>
-                                        <td>
-                                            <input type="text" class="form-control" placeholder="Masukkan Jumlah Hari" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-dark" type="sewa" id="sewa">Sewa</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
 

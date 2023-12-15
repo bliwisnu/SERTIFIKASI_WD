@@ -10,6 +10,7 @@
             </a>
             <div class="navbar-nav w-100">
                 <a href="/dashboard" class="nav-item nav-link active text-success mb-3"><i class="fa fa-tachometer-alt me-2 text-success"></i>Dashboard</a>
+                <a href="/sewaAlat" class="nav-item nav-link active text-success mb-3"><i class="fa fa-tachometer-alt me-2 text-success"></i>Sewa Alat</a>
                 <a href="/dataPenyewaan" class="nav-item nav-link active text-success mb-3"><i class="fa fa-tachometer-alt me-2 text-success"></i>Data Penyewaan</a>
             </div>
         </nav>
@@ -48,7 +49,7 @@
         <!-- Header -->
         <div class="container-fluid pt-4 px-4">
             <h4 class="header text-center text-light bg-success">
-               <b>DATA PENYEWAAN</b>
+                <b>DATA PENYEWAAN</b>
             </h4>
         </div>
         <!-- Sale & Revenue Start -->
@@ -67,49 +68,19 @@
                                     <tr class="text-dark">
                                         <th scope="col">Nama Alat</th>
                                         <th scope="col">Harga/hari</th>
-                                        <th scope="col">Durasi/hari</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">Tanggal Penyewaan</th>
+                                        <th scope="col">Tanggal Pengembalian</th>
+                                        <th scope="col">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>cangkul</td>
                                         <td>200.000</td>
+                                        <td>13/10/2023</td>
+                                        <td>03/11/2023</td>
                                         <td>
-                                            <input type="text" class="form-control" placeholder="Masukkan Jumlah Hari" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-dark" type="sewa" id="sewa">Sewa</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>cangkul</td>
-                                        <td>200.000</td>
-                                        <td>
-                                            <input type="text" class="form-control" placeholder="Masukkan Jumlah Hari" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-dark" type="sewa" id="sewa">Sewa</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>cangkul</td>
-                                        <td>200.000</td>
-                                        <td>
-                                            <input type="text" class="form-control" placeholder="Masukkan Jumlah Hari" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-dark" type="sewa" id="sewa">Sewa</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>cangkul</td>
-                                        <td>200.000</td>
-                                        <td>
-                                            <input type="text" class="form-control" placeholder="Masukkan Jumlah Hari" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-dark" type="sewa" id="sewa">Sewa</button>
+                                            <button class="btn btn-dark" type="sewa" id="sewa">Status</button>
                                         </td>
                                     </tr>
                                 </tbody>
