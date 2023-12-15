@@ -48,3 +48,7 @@ Abidzar Zulfa Arifa Kusyono  | 1202204331
 | 3  | Logout  |
 | 4  | Update Profile  |
 
+## Skema Database
+![schema_db_agrorent]()
+
+## Video Project
