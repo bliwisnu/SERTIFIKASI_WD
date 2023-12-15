@@ -56,12 +56,9 @@
                 <h3 class="text-dark mb-5">Sewa Alat</h3>
                 <form action="/tambahUser/store" method="POST">
                     @csrf
-                    <div class="form mb-3">
+                    <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Alat</label>
-                        <select class="form-select" name="gender" id="floatingSelect" aria-label="Floating label select example">
-                            <option value="Laki-laki">Laki-laki</option>
-                            <option value="Perempuan">Perempuan</option>
-                        </select>
+                        <input type="username" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Harga Alat</label>
@@ -80,7 +77,7 @@
                     </div>
                     <div class="form mb-3">
                         <label for="exampleInputEmail1" class="form-label">Tanggal Pengembalian</label>
-                        <div class="input-group date" id="datepicker">
+                        <div class="input-group date" id="datepicker1">
                             <input type="text" class="form-control">
                             <span class="input-group-append">
                                 <span class="input-group-text bg-white d-block">
@@ -113,8 +110,15 @@
     <!-- Content End -->
 </div>
 
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script> -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 <script>
@@ -123,4 +127,11 @@
     $j(document).ready(function() {
         $j('#myTable').DataTable();
     });
+</script>
+<script type="text/javascript">
+    (function($) {
+        $(document).ready(function() {
+            $('#datepicker, #datepicker1').datepicker();
+        });
+    })(jQuery);
 </script>
