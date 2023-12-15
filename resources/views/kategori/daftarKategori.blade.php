@@ -30,7 +30,7 @@
                                 @foreach ($semuaKategori as $semuaKategori )
                                 <tr>
                                     <td>{{ $semuaKategori-> jenis_alat }}</td>
-                                    <td><a class="btn btn-sm btn-warning" href="/editKategori/{{ $semuaKategori-> id }}">Edit</a>
+                                    <td><a class="btn btn-sm btn-warning" href="/editKategori/{{ $semuaKategori->id }}">Edit</a>
                                         <a class="btn btn-sm btn-danger" href="/hapusKategori/{{ $semuaKategori->id }}">Delete</a>
                                     </td>
                                 </tr>

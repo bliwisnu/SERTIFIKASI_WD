@@ -7,23 +7,33 @@ use Illuminate\Http\Request;
 
 class KategoriController extends Controller
 {
-    public function tambahKategori(Request $request){
+    // Menambah Kategori
+    public function tambahKategori(Request $request)
+    {
         Kategori::create($request->all());
+        $categoryAlat = Kategori::where('category_id', $request->category_id);
+
+        $categoryData = $categoryAlat->first();
+        $categoryID = $categoryData->id;
+        $categoryData->category_id = $categoryID;
+        
         return redirect("/tambahKategori");
     }
+
+    // Mengedit Kategori
     public function editKategori_page($id)
     {
         $editKategori = Kategori::find($id);
         return view('kategori.editKategori', compact(['editKategori']));
     }
-    // public function editPage_store($slug, Request $request)
-    // {
-    //     $editKategori = Kategori::where('slug', $slug)->first();
-    //     $editKategori->update($request->all());
+    public function editKategoriStore($id, Request $request)
+    {
+        $editKategoriStore = Kategori::find($id);
+        $editKategoriStore->update($request->all());
+        return redirect('/daftarKategori');
+    }
 
-    //     return redirect('/show-category');
-    // }
-
+    // Hapus Kategori
     public function destroyKategori($id)
     {
         Kategori::find($id)->delete();

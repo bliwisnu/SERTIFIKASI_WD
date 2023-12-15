@@ -2,7 +2,6 @@
 @section('content')
 
     <div class="container-xxl position-relative bg-white d-flex p-0">
-        @include('layouts.loading')
         @include('layouts.sidebar')
 
         <!-- Content Start -->
@@ -11,25 +10,26 @@
             @include('layouts.navbarAdmin')
             <!-- Navbar End -->
 
-            <!-- Recent Sales Start -->
+            <!-- Content -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded p-4">
                     <div class=" mb-4">
                         <div class="mb-3">
-                            <label for="exampleInput" class="form-label text-start">Edit Kategori</label>
-                            <input class="form-control" name="jenis_alat" id="exampleInput"
-                                aria-describedby="kategori">
+                            <form action="/update-kategori/{{ $editKategori->id }}" method="POST">
+                                @csrf
+                                @method('put')
+                                <label for="exampleInput" class="form-label text-start">Edit Kategori</label>
+                                <input class="form-control" name="jenis_alat" id="exampleInput" aria-describedby="kategori"
+                                    value="{{ $editKategori->jenis_alat }}">
                         </div>
                         <div class="mt-3">
                             <button type="submit" class="btn btn-success">Edit</button>
                         </div>
-                        {{-- <form action="/tambahKategori/store" method="POST">
-                            @csrf
-                        </form> --}}
+                        </form>
                     </div>
                 </div>
             </div>
-            <!-- Recent Sales End -->
+            <!-- Content End -->
 
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">

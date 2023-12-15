@@ -4,6 +4,7 @@
     use App\Http\Controllers\DashboardController;
     use App\Http\Controllers\KategoriController;
     use App\Http\Controllers\ProfileController;
+    use App\Http\Controllers\UpdateUserController;
     use App\Http\Controllers\VerifController;
     use App\Models\AlatModel;
     use App\Models\Kategori;
@@ -52,40 +53,46 @@
             return view('user.DataPenyewaan');
         });
 
-        // Admin & Ueer
+        // Admin & User
+        // Route::post('/update-user/{id}', [ProfileController::class,'updateUser']);
         Route::post('/update-profile/{id}', [ProfileController::class, 'editProfile']);
         Route::put('/update-profile/{id}', [ProfileController::class, 'editProfile']);
 
         // Admin
-        Route::get('/EditUser/{id}', [ProfileController::class, "editUserPage"]);
-        // Route::post('/update-user/{id}', [ProfileController::class,'updateUser']);
-        Route::put('/update-user/{id}', [ProfileController::class, 'updateUser']);
-
+        Route::get('/EditUser/{id}', [UpdateUserController::class, "editUserPage"]);
+        Route::put('/update-user/{id}', [UpdateUserController::class, 'updateUser']);
         Route::get('/tambah/user', function () {
             return view('user.TambahUser');
         });
-        Route::post('/tambahUser/store', [ProfileController::class,'createUser']);
-        Route::get('/tambahKategori', function () {
-            return view('kategori.tambahKategori');
-        });
+        Route::post('/tambahUser/store', [ProfileController::class, 'createUser']);
+
+
+        // Kategori
         Route::get('/daftarKategori', function () {
             $semuaKategori = Kategori::all();
             return view('kategori.daftarKategori', compact(['semuaKategori']));
         });
-        Route::get('/tambahBarang', function () {
-            return view('barang.tambahBarang');
+        Route::get('/tambahKategori', function () {
+            return view('kategori.tambahKategori');
         });
-        Route::post('/tambahBarang/store', [AlatController::class, 'tambahBarangStore']);
-        Route::get('/editBarang/{id}', function ($id) {
-            $detailBarang = AlatModel::find($id);
-            return view('barang.editBarang', compact(['detailBarang']));
+        Route::put('/update-kategori/{id}', [KategoriController::class, 'editKategoriStore']);
+        Route::post('/tambahKategori/store', [KategoriController::class, 'tambahKategori']);
+        Route::get('/editKategori/{id}', [KategoriController::class, "editKategori_page"]);
+        Route::get('/hapusKategori/{id}', [KategoriController::class, "destroyKategori"]);
+
+        // Barang
+        Route::get('/tambahBarang', function () {
+            $semuaKategori = Kategori::all();
+            return view('barang.tambahBarang', compact(['semuaKategori']));
         });
         Route::get('/daftarBarang', function () {
             $semuaBarang = AlatModel::all();
             return view('barang.daftarBarang', compact(['semuaBarang']));
         });
+        Route::get('/editBarang/{id}', function ($id) {
+            $detailBarang = AlatModel::find($id);
+            return view('barang.editBarang', compact(['detailBarang']));
+        });
+        Route::post('/tambahBarang/store', [AlatController::class, 'tambahBarangStore']);
         Route::get('/hapusBarang/{id}', [AlatController::class, 'destroy']);
-        Route::post('/tambahKategori/store', [KategoriController::class, 'tambahKategori']);
-        Route::get('/editKategori/{id}', [KategoriController::class, "editKategori_page"]);
-        Route::get('/hapusKategori/{id}', [KategoriController::class, "destroyKategori"]);
     });

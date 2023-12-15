@@ -89,7 +89,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label class="mb-2" for="floatingTextarea">Alamat</label>
-                                            <input type="alamat" class="form-control" placeholder="Catumkan no hp anda"
+                                            <input type="alamat" class="form-control" placeholder="Catumkan alamat anda"
                                                 id="exampleInputEmail1" aria-describedby="emailHelp" name="alamat"
                                                 value="{{ Auth::user()->alamat }}">
                                         </div>

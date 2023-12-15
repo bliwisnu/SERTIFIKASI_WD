@@ -23,6 +23,7 @@
                             <thead>
                                 <tr class="text-dark">
                                     <th scope="col">Nama Alat</th>
+                                    <th scope="col">Kategori Alat</th>
                                     <th scope="col">Harga</th>
                                     <th scope="col">Gambar</th>
                                     <th scope="col">Action</th>
@@ -32,6 +33,7 @@
                                 @foreach ($semuaBarang as $barang)
                                 <tr>
                                     <td>{{ $barang->nama_alat}}</td>
+                                    <td>{{ implode(',', $barang->categories->pluck("jenis_alat")->toArray())}}</td>
                                     <td>{{ $barang->harga_alat }}</td>
                                     <td>{{ $barang->input_gambar }}</td>
                                     <td><a class="btn btn-sm btn-warning" href="/editBarang/{{ $barang->id }}">Edit</a>

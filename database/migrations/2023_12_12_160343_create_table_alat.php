@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('table_alat', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('alat_catalogue_id')->nullable();
             $table->timestamps();
             $table->string('nama_alat');
             $table->integer('harga_alat');
-            $table->string('input_gambar');
+            $table->string('input_gambar')->nullable();
         });
     }
 

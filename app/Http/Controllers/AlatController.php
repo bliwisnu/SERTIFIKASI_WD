@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\AlatModel;
+use App\Models\Kategori;
+use App\Models\KategoriAlatModel;
 // use App\Models\User;
 use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Auth;
@@ -12,24 +14,23 @@ class AlatController extends Controller
 {
     public function tambahBarangStore(Request $request)
     {
-        AlatModel::create($request->all());
-        return redirect()->back();
+        // $semuaBarang = KategoriAlatModel::all();
+        $semuaBarang = AlatModel::create($request->except('category'));
+        $semuaBarang->categories()->sync($request->category);
+
+        $alatBarang = AlatModel::where('alat_catalogue_id', $request->alat_catalogue_id);
+
+        $alatData = $alatBarang->first();
+        $alatID = $alatData->id;
+        $alatData->alat_catalogue_id = $alatID;
+
+        if ($alatData) {
+            $alatData->save();
+        }
+
+
+        return redirect('/');
     }
-    // public function tambahBarangStore(Request $request) {
-    // $alat = new AlatModel;
-    // $alat->nama_alat = $request->nama_alat;
-    // $alat->harga_alat = $request->harga_alat;
-
-    // if ($image = $request->file('Foto')) {
-    //     $destinationPath = 'img/alat/';
-    //     $profileImage = "img/alat/" . date('YmdHis') . "." . $image->getClientOriginalExtension();
-    //     $image->storeAs($destinationPath, $profileImage, 'public');
-    //     $alat->input_gambar = $profileImage;
-    // }
-
-    // $alat->save();
-// }
-
     public function editAlat_page($id)
     {
         $editKategori = AlatModel::find($id);

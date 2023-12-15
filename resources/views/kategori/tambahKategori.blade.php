@@ -22,8 +22,9 @@
                                 <input class="form-control" name="jenis_alat" id="exampleInput"
                                     aria-describedby="kategori">
                             </div>
-                            <div class="mt-3">
-                                <button type="submit" class="btn btn-success">Tambah</button>
+                            <div class="mt-3 d-flex justify-content-between">
+                                <button type="submit" class="btn btn-success w-25">Tambah</button>
+                                <a class="btn btn-dark w-25" href="/daftarKategori">Back</a>
                             </div>
                         </form>
                     </div>
