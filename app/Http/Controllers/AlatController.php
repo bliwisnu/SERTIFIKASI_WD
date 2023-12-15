@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Hash;
 
 class AlatController extends Controller
-{
+    {
     public function tambahBarangStore(Request $request)
     {
         // $semuaBarang = KategoriAlatModel::all();
@@ -28,9 +28,23 @@ class AlatController extends Controller
             $alatData->save();
         }
 
+        $alatGambar = new AlatModel;
+        $alatGambar->nama_alat = $request->nama_alat;
+        $alatGambar->harga_alat = $request->harga_alat;
 
-        return redirect('/');
+        if ($image = $request->file('input_gambar')) {
+            $destinationPath = 'img/alat/';
+            $alatImage = "img/alat/" . date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $alatImage);
+            $input['image'] = "$alatImage";
+            $alatGambar->input_gambar = $input['image'];
+        }
+
+        // $alatGambar->create($request->all());
+        $alatGambar->save();
+        return redirect()->back()->with("success", "Alat Successfully Added");
     }
+
     public function editAlat_page($id)
     {
         $editKategori = AlatModel::find($id);

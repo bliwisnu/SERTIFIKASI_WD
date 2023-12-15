@@ -31,10 +31,11 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         @auth
-                        <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                        <span class="d-none d-lg-inline-flex">
-                            {{ Str::length(Auth::user()->username) > 10?
-                            Str::substr(Auth:: user()->username,0,10). "...": Auth::user()->username }}
+                        <img class="rounded-circle me-lg-2" src="/img/{{ Auth::user()->profile_picture }}" alt="" style="width: 40px; height: 40px;">
+                        <span class="d-none d-lg-inline-flex text-light">
+                            {{ Str::length(Auth::user()->username) > 10
+                            ? Str::substr(Auth::user()->username, 0, 10) . '...'
+                            : Auth::user()->username }}
                         </span>
                         @endauth
                     </a>
@@ -111,7 +112,7 @@
                                         <td>cangkul</td>
                                         <td>200.000</td>
                                         <td>
-                                        <input type="text" class="form-control" placeholder="Masukkan Jumlah Hari" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                            <input type="text" class="form-control" placeholder="Masukkan Jumlah Hari" aria-label="Recipient's username" aria-describedby="button-addon2">
                                         </td>
                                         <td>
                                             <button class="btn btn-dark" type="sewa" id="sewa">Sewa</button>
