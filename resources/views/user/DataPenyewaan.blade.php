@@ -70,7 +70,7 @@
                                         <th scope="col">Nama Alat</th>
                                         <th scope="col">Harga/Hari</th>
                                         <th scope="colengemb">Tanggal Penyewaan</th>
-                                        <th scope="col">Tanggal Palian</th>
+                                        <th scope="col">Tanggal Pengembalian</th>
                                         <th scope="col">Status</th>
                                     </tr>
                                 </thead>

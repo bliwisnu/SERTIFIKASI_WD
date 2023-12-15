@@ -22,13 +22,15 @@ class SewaController extends Controller
         }
         $peminjaman->status = $request->status;
         $peminjaman->save();
-        dd($peminjaman);
+        // dd($peminjaman);
+        return redirect('/dataPeminjaman');
     }
 
     public function showPeminjamanPage( ) {
         
         $totPeminjaman = PeminjamanModel::latest()->get();
         return view('test', compact('totPeminjaman'));
+        // return view('test');
     }
 
     public function sentPeminjaman(Request $request) {

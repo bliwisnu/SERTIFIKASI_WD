@@ -106,4 +106,6 @@
 
         Route::get('/dataPeminjaman', [SewaController::class, 'showPeminjamanPage']);
         Route::post('/peminjaman/{id}', [SewaController::class, 'sentPeminjaman']);
+
+        Route::post('/ubahStatus/{id}', [SewaController::class, 'mengubahStatusStore']);
     });

@@ -35,7 +35,7 @@
                                         <td scope="col">{{ $pinjam->tanggal_sewa }}</td>
                                         <td scope="col">{{ $pinjam->tanggal_pengembalian }}</td>
                                         <td scope="col">{{ $pinjam->status }}</td>
-                                        <form action="/statusBerubah/store/{{ $pinjam->id }}" method="post">
+                                        <form action="/ubahStatus/{{ $pinjam->id }}" method="post">
                                             @csrf
                                             <td scope="col">
                                                 <select name="status" class="form-control">
@@ -56,9 +56,9 @@
                                         </form>
                                     </tr>
                                 @endforeach
-                                {{-- @foreach ($totPeminjaman as $pinjam)
+                                <!-- {{-- @foreach ($totPeminjaman as $pinjam)
                                     <tr>
-                                        <form action="/ubah-status/store/{{ $pinjam->id }}" method="post">
+                                        <form action="/ubahStatus/{{ $pinjam->id }}" method="post">
                                             @csrf
                                             <td scope="col">{{ $pinjam->table_alat->nama_alat }}</td>
                                             <td scope="col">{{ $pinjam->table_alat->harga_alat }}</td>
@@ -78,7 +78,7 @@
                                             </td>
                                         </form>
                                     </tr>
-                                @endforeach --}}
+                                @endforeach --}} -->
                             </tbody>
                         </table>
                     </div>
