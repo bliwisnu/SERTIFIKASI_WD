@@ -17,6 +17,11 @@ class AlatController extends Controller
         // $semuaBarang = KategoriAlatModel::all();
         $semuaBarang = AlatModel::create($request->except('category'));
         $semuaBarang->categories()->sync($request->category);
+        $alatBarang = AlatModel::where('alat_catalogue_id', $request->alat_catalogue_id);
+
+        $alatData = $alatBarang->first();
+        $alatID = $alatData->id;
+        $alatData->alat_catalogue_id = $alatID;
 
         $alatBarang = AlatModel::where('alat_catalogue_id', $request->alat_catalogue_id);
 

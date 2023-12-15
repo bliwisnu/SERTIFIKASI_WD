@@ -4,10 +4,12 @@
     use App\Http\Controllers\DashboardController;
     use App\Http\Controllers\KategoriController;
     use App\Http\Controllers\ProfileController;
+    use App\Http\Controllers\SewaController;
     use App\Http\Controllers\UpdateUserController;
     use App\Http\Controllers\VerifController;
     use App\Models\AlatModel;
     use App\Models\Kategori;
+    use App\Models\PeminjamanModel;
     use App\Models\User;
     use App\Models\VerifModel;
     use Illuminate\Support\Facades\Route;
@@ -50,16 +52,19 @@
         // User
         Route::get('/profile', [ProfileController::class, 'index']);
         Route::get('/dataPenyewaan', function () {
-            return view('user.DataPenyewaan');
+            $peminjaman = PeminjamanModel::all();
+            return view('user.DataPenyewaan', compact('peminjaman'));
         });
-        Route::get('/sewaAlat', function () {
-            return view('user.SewaAlat');
+        Route::get('/sewaAlat/{id}', function ($id) {
+            $detailAlat = AlatModel::find($id);
+            return view('user.SewaAlat', compact('detailAlat'));
         });
 
         // Admin & User
         // Route::post('/update-user/{id}', [ProfileController::class,'updateUser']);
         Route::post('/update-profile/{id}', [ProfileController::class, 'editProfile']);
         Route::put('/update-profile/{id}', [ProfileController::class, 'editProfile']);
+
 
         // Admin
         Route::get('/EditUser/{id}', [UpdateUserController::class, "editUserPage"]);
@@ -98,4 +103,7 @@
         });
         Route::post('/tambahBarang/store', [AlatController::class, 'tambahBarangStore']);
         Route::get('/hapusBarang/{id}', [AlatController::class, 'destroy']);
+
+        Route::get('/dataPeminjaman', [SewaController::class, 'showPeminjamanPage']);
+        Route::post('/peminjaman/{id}', [SewaController::class, 'sentPeminjaman']);
     });

@@ -54,17 +54,19 @@
         <div class="container-fluid pt-4 px-4">
             <div class="bg-light rounded p-4">
                 <h3 class="text-dark mb-5">Sewa Alat</h3>
-                <form action="/tambahUser/store" method="POST">
+                <form action="/peminjaman/{{ $detailAlat -> id }}" method="POST">
                     @csrf
+                    <input value="{{ $detailAlat ->id }}" name="alat_id" type="text">
+                    <input value="{{ Auth::user()->id }}" name="user_id" type="text">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Alat</label>
-                        <input type="username" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input value="{{ $detailAlat -> nama_alat }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Harga Alat</label>
-                        <input type="username" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input value="{{ $detailAlat -> harga_alat }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
-                    <div class="form mb-3">
+                    <!-- <div class="form mb-3">
                         <label for="exampleInputEmail1" class="form-label">Tanggal Sewa</label>
                         <div class="input-group date" id="datepicker">
                             <input type="text" class="form-control">
@@ -85,7 +87,7 @@
                                 </span>
                             </span>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="button-group d-flex justify-content-between">
                         <button type="submit" class="btn w-25 btn-success mt-3">Sewa</button>
                         <a href="/dashboard" class="btn btn-dark w-25 mt-3">Back</a>

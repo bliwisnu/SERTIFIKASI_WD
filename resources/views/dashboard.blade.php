@@ -1,10 +1,10 @@
 @extends('layouts.headerBody')
 @section('content')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
-
     <div class="container-xxl position-relative bg-white d-flex p-0">
         @include('layouts.loading')
         @include('layouts.sidebar')
+
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->

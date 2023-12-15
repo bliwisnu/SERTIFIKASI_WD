@@ -63,28 +63,32 @@
                             <a href="">Show All</a>
                         </div>
                         <div class="table-responsive">
+                            @foreach ($peminjaman as $sewa)
                             <table class="table text-start align-middle table-bordered table-hover mb-0">
                                 <thead>
                                     <tr class="text-dark">
                                         <th scope="col">Nama Alat</th>
-                                        <th scope="col">Harga/hari</th>
-                                        <th scope="col">Tanggal Penyewaan</th>
-                                        <th scope="col">Tanggal Pengembalian</th>
+                                        <th scope="col">Harga/Hari</th>
+                                        <th scope="colengemb">Tanggal Penyewaan</th>
+                                        <th scope="col">Tanggal Palian</th>
                                         <th scope="col">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>cangkul</td>
-                                        <td>200.000</td>
-                                        <td>13/10/2023</td>
-                                        <td>03/11/2023</td>
+                                        <td>{{ $sewa -> table_alat -> nama_alat }}</td>
+                                        <td>{{ $sewa -> table_alat -> harga_alat }}</td>
+                                        <td>{{ $sewa -> tanggal_sewa  }}</td>
+                                        <td>{{ $sewa -> tanggal_pengembalian  }}</td>
                                         <td>
-                                            <button class="btn btn-dark" type="sewa" id="sewa">Status</button>
+                                            <button class="btn btn-dark" type="sewa" id="sewa">
+                                                {{ $sewa -> status }}
+                                            </button>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
+                            @endforeach
                         </div>
                     </div>
                 </div>

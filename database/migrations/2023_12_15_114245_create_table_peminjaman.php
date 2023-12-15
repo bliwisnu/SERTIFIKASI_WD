@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('table_peminjaman', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('users_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('alat_id')->nullable();
-            $table->string('nama_alat');
-            $table->string('harga_alat');
-            $table->string('tanggal_sewa');
-            $table->string('tanggal_pengembalian');
-            $table->string('status');
+            $table->date('tanggal_sewa');
+            $table->date('tanggal_pengembalian');
+            $table->string('status')->default("in stock");
             $table->timestamps();
         });
     }

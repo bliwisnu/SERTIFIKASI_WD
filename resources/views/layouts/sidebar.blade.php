@@ -11,9 +11,11 @@
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="/daftarKategori" class="dropdown-item">Tambah Kategori</a>
                     <a href="/daftarBarang" class="dropdown-item">Tambah Alat</a>
+                    <a href="/dataPeminjaman" class="dropdown-item">Data Peminjaman</a>
                 </div>
             </div>
         </div>
     </nav>
 </div>
 <!-- Sidebar End -->
+

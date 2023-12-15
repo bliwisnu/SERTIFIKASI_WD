@@ -82,7 +82,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $alat -> nama_alat }}</h5>
                                     <p class="card-text">{{ $alat -> harga_alat }}</p>
-                                    <a href="#" class="btn btn-dark">sewa</a>
+                                    <a href="/sewaAlat/{{ $alat -> id }}" class="btn btn-dark">sewa</a>
                                 </div>
                             </div>
                         </div>
