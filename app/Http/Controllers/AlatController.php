@@ -12,23 +12,22 @@ class AlatController extends Controller
 {
     public function tambahBarangStore(Request $request)
     {
-        AlatModel::create($request->all());
-        return redirect()->back();
+        $alatGambar = new AlatModel;
+        $alatGambar->nama_alat = $request->nama_alat;
+        $alatGambar->harga_alat = $request->harga_alat;
+
+        if ($image = $request->file('input_gambar')) {
+            $destinationPath = 'img/alat/';
+            $alatImage = "img/alat/" . date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $alatImage);
+            $input['image'] = "$alatImage";
+            $alatGambar->input_gambar = $input['image'];
+        }
+
+        // $alatGambar->create($request->all());
+        $alatGambar->save();
+        return redirect()->back()->with("success", "Alat Successfully Added");
     }
-    // public function tambahBarangStore(Request $request) {
-    // $alat = new AlatModel;
-    // $alat->nama_alat = $request->nama_alat;
-    // $alat->harga_alat = $request->harga_alat;
-
-    // if ($image = $request->file('Foto')) {
-    //     $destinationPath = 'img/alat/';
-    //     $profileImage = "img/alat/" . date('YmdHis') . "." . $image->getClientOriginalExtension();
-    //     $image->storeAs($destinationPath, $profileImage, 'public');
-    //     $alat->input_gambar = $profileImage;
-    // }
-
-    // $alat->save();
-// }
 
     public function editAlat_page($id)
     {
