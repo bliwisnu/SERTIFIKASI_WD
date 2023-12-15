@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Hash;
 
 class AlatController extends Controller
-    {
+{
     public function tambahBarangStore(Request $request)
     {
         // $semuaBarang = KategoriAlatModel::all();
@@ -23,26 +23,32 @@ class AlatController extends Controller
         $alatData = $alatBarang->first();
         $alatID = $alatData->id;
         $alatData->alat_catalogue_id = $alatID;
-
+        
+        
         if ($alatData) {
             $alatData->save();
         }
-
-        $alatGambar = new AlatModel;
-        $alatGambar->nama_alat = $request->nama_alat;
-        $alatGambar->harga_alat = $request->harga_alat;
-
-        if ($image = $request->file('input_gambar')) {
-            $destinationPath = 'img/alat/';
-            $alatImage = "img/alat/" . date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $alatImage);
-            $input['image'] = "$alatImage";
-            $alatGambar->input_gambar = $input['image'];
+        if ($request->hasFile("input_gambar")) {
+            $request->file("input_gambar")->move("img/alat/", $request->file("input_gambar")->getClientOriginalName());
+            $semuaBarang->input_gambar = $request->file("input_gambar")->getClientOriginalName();
+            $semuaBarang->save();
         }
+        
+        // $alatGambar = new AlatModel;
+        // $alatGambar->nama_alat = $request->nama_alat;
+        // $alatGambar->harga_alat = $request->harga_alat;
+
+        // if ($image = $request->file('input_gambar')) {
+        //     $destinationPath = 'img/alat/';
+        //     $alatImage = "img/alat/" . date('YmdHis') . "." . $image->getClientOriginalExtension();
+        //     $image->move($destinationPath, $alatImage);
+        //     $input['image'] = "$alatImage";
+        //     $alatGambar->input_gambar = $input['image'];
+        // }
 
         // $alatGambar->create($request->all());
-        $alatGambar->save();
-        return redirect()->back()->with("success", "Alat Successfully Added");
+        // $alatGambar->save();
+        // return redirect()->back()->with("success", "Alat Successfully Added");
     }
 
     public function editAlat_page($id)
