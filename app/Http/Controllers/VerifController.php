@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\VerifModel;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Validation\Rule;
 
 class VerifController extends Controller
 {
@@ -18,20 +23,41 @@ class VerifController extends Controller
 
     public function registerStore(Request $request)
     {
-        $this->validate($request, [
-            'password' => 'required|min:5',
-            'username' => 'required'
-        ], [
-            'username.required' => "Field nama wajib di isi."
-        ]);
-        VerifModel::create([
-            'username' => $request->username,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'remember_token' => Str::random(60),
-            'role_user' => 0
-        ]);
-        return redirect('/register')->with('successRegist', 'Akunmu sukses didaftarkan.');
+        try {
+            // Validasi input
+            $validator = Validator::make($request->all(), [
+                'email' => 'required',
+                'password' => 'required|min:5',
+                'username' => 'required'
+            ], [
+                'username.required' => "Field nama wajib di isi.",
+                'email.unique' => "Email tidak dapat digunakan."
+            ]);
+
+            if ($validator->fails()) {
+                throw new ValidationException($validator);
+            }
+
+            // Simpan data ke database
+            VerifModel::create([
+                'username' => $request->username,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'remember_token' => Str::random(60),
+                'role_user' => 0
+            ]);
+
+            notify()->success('Akunmu sukses didaftarkan ⚡️');
+            return redirect('/register');
+        } catch (ValidationException $e) {
+            // Tangani kesalahan validasi
+            notify()->error('Terdapat kesalahan validasi ⚡️');
+            return redirect()->back()->withErrors($e->validator)->withInput();
+        } catch (QueryException $e) {
+            // Tangani kesalahan database
+            notify()->error('Email sudah tersedia ⚡️');
+            return redirect()->back()->withInput();
+        }
     }
 
     function loginStore(Request $request)
