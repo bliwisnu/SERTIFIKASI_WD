@@ -95,8 +95,8 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>3</td>
-                                        <td>304000</td>
+                                        <td>{{ $countAlat }}</td>
+                                        <td>{{ $countHarga }}</td>
                                     </tr>
                                 </tbody>
                             </table>

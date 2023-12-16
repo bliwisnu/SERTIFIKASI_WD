@@ -59,10 +59,11 @@
             $detailAlat = AlatModel::find($id);
             return view('user.SewaAlat', compact('detailAlat'));
         });
-        Route::get('/listOrder', function () {
-            $peminjaman = PeminjamanModel::all();
-            return view('user.listOrder', compact('peminjaman'));
-        });
+        // Route::get('/listOrder', function () {
+        //     $peminjaman = PeminjamanModel::all();
+        //     return view('user.listOrder', compact('peminjaman'));
+        // });
+        Route::get('/listOrder', [SewaController::class, 'index'])->name('listOrder');
 
 
         // Admin & User

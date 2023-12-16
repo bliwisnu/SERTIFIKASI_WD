@@ -9,6 +9,17 @@ use Illuminate\Support\Facades\DB;
 
 class SewaController extends Controller
 {
+    public function index()
+    {
+        $countAlat = PeminjamanModel::whereNotNull('alat_id')->count();
+        $peminjaman = PeminjamanModel::all();
+        $countHarga = $peminjaman->sum(function ($sewa) {
+            return $sewa->table_alat->harga_alat;
+        });
+
+        return view('user.listOrder', compact('peminjaman', 'countAlat', 'countHarga'));
+    }
+
     public function mengubahStatusStore($id, Request $request)
     {
         $request->validate([
