@@ -56,8 +56,8 @@
                 <h3 class="text-dark mb-5">Sewa Alat</h3>
                 <form action="/peminjaman/{{ $detailAlat -> id }}" method="POST">
                     @csrf
-                    <input value="{{ $detailAlat ->id }}" name="alat_id" type="text">
-                    <input value="{{ Auth::user()->id }}" name="user_id" type="text">
+                    <input value="{{ $detailAlat ->id }}" name="alat_id" type="hidden">
+                    <input value="{{ Auth::user()->id }}" name="user_id" type="hidden">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Alat</label>
                         <input value="{{ $detailAlat -> nama_alat }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
