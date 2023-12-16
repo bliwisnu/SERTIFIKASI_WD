@@ -101,9 +101,9 @@
                                 </tbody>
                             </table>
                             <!-- Print PDF -->
-                            <button class="btn btn-dark mt-5" type="sewa" id="sewa">
+                            <a href="/cetakListOrder" class="btn btn-dark mt-5" type="sewa" id="sewa" target="_blank">
                                 Cetak Invoice
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>

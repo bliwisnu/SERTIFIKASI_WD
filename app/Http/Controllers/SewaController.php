@@ -9,7 +9,18 @@ use Illuminate\Support\Facades\DB;
 
 class SewaController extends Controller
 {
-    public function index()
+    public function cetakListOrderStore()
+    {
+        $countAlat = PeminjamanModel::whereNotNull('alat_id')->count();
+        $peminjaman = PeminjamanModel::all();
+        $countHarga = $peminjaman->sum(function ($sewa) {
+            return $sewa->table_alat->harga_alat;
+        });
+
+        return view('user.CetakListOrder', compact('peminjaman', 'countAlat', 'countHarga'));
+    }
+
+    public function listOrderStore()
     {
         $countAlat = PeminjamanModel::whereNotNull('alat_id')->count();
         $peminjaman = PeminjamanModel::all();

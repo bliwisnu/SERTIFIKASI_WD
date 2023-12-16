@@ -63,7 +63,8 @@
         //     $peminjaman = PeminjamanModel::all();
         //     return view('user.listOrder', compact('peminjaman'));
         // });
-        Route::get('/listOrder', [SewaController::class, 'index'])->name('listOrder');
+        Route::get('/listOrder', [SewaController::class, 'listOrderStore'])->name('listOrder');
+        Route::get('/cetakListOrder', [SewaController::class, 'cetakListOrderStore']);
 
 
         // Admin & User
