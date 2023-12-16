@@ -26,33 +26,54 @@ class SewaController extends Controller
         return redirect('/dataPeminjaman');
     }
 
-    public function showPeminjamanPage( ) {
-        
+    public function showPeminjamanPage()
+    {
+
         $totPeminjaman = PeminjamanModel::latest()->get();
         return view('barang.dataPeminjaman', compact('totPeminjaman'));
         // return view('test');
     }
 
-    public function sentPeminjaman(Request $request) {
-        $request["tanggal_sewa"] = Carbon::now()->toDateString();
-        $request["tanggal_pengembalian"] = Carbon::now()->addDays(5)->toDateString();
+    // public function sentPeminjaman(Request $request) {
+    //     $request["tanggal_sewa"] = Carbon::now()->toDateString();
+    //     $request["tanggal_pengembalian"] = Carbon::now()->addDays(5)->toDateString();
+    //     try {
+    //         DB::beginTransaction();
+    //         PeminjamanModel::create($request->except('category'));
+    //         DB::commit();
+
+    //         $peminjamanAlat = PeminjamanModel::where('user_id', $request->user_id)
+    //             ->where('alat_id', $request->alat_id)->where('tanggal_pengembalian', $request->tanggal_pengembalian);
+    //         $alatData = $peminjamanAlat->first();
+    //         $alatData->save();
+    //         return redirect('/');
+    //     } catch (\Throwable $throw) {
+    //         DB::rollback();
+    //         dd($throw);
+    //     }
+    // }
+
+    public function sentPeminjaman(Request $request)
+    {
+        $request->validate([
+            // Add validation rules for other fields if needed
+        ]);
+
         try {
             DB::beginTransaction();
             PeminjamanModel::create($request->except('category'));
-            DB::commit();
 
+            // ... (your existing logic)
             $peminjamanAlat = PeminjamanModel::where('user_id', $request->user_id)
                 ->where('alat_id', $request->alat_id)->where('tanggal_pengembalian', $request->tanggal_pengembalian);
             $alatData = $peminjamanAlat->first();
             $alatData->save();
+
+            DB::commit();
             return redirect('/');
         } catch (\Throwable $throw) {
             DB::rollback();
             dd($throw);
         }
     }
-
-    // public funtion sewaAlat($id, Request $request) {
-
-    // }
 }

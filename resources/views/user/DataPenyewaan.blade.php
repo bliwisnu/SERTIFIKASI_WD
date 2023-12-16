@@ -63,7 +63,6 @@
                             <a href="">Show All</a>
                         </div>
                         <div class="table-responsive">
-                            @foreach ($peminjaman as $sewa)
                             <table class="table text-start align-middle table-bordered table-hover mb-0">
                                 <thead>
                                     <tr class="text-dark">
@@ -74,6 +73,7 @@
                                         <th scope="col">Status</th>
                                     </tr>
                                 </thead>
+                                @foreach ($peminjaman as $sewa)
                                 <tbody>
                                     <tr>
                                         <td>{{ $sewa -> table_alat -> nama_alat }}</td>
@@ -87,8 +87,8 @@
                                         </td>
                                     </tr>
                                 </tbody>
+                                @endforeach
                             </table>
-                            @endforeach
                         </div>
                     </div>
                 </div>

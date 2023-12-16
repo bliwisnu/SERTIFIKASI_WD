@@ -69,7 +69,8 @@
                     <div class="form mb-3">
                         <label for="exampleInputEmail1" class="form-label">Tanggal Sewa</label>
                         <div class="input-group date" id="datepicker">
-                            <input type="text" class="form-control" value="{{ $detailAlat -> tanggal_sewa }}">
+                            <!-- <input type="text" class="form-control" value="{{ $detailAlat -> tanggal_sewa }}"> -->
+                            <input type="text" class="form-control" name="tanggal_sewa" value="{{ $detailAlat->tanggal_sewa ?? \Carbon\Carbon::now()->toDateString() }}">
                             <span class="input-group-append">
                                 <span class="input-group-text bg-white d-block">
                                     <i class="fa fa-calendar"></i>
@@ -80,7 +81,8 @@
                     <div class="form mb-3">
                         <label for="exampleInputEmail1" class="form-label">Tanggal Pengembalian</label>
                         <div class="input-group date" id="datepicker1">
-                            <input type="text" class="form-control" value="{{ $detailAlat -> tanggal_pengembalian }}">
+                            <!-- <input type="text" class="form-control" value="{{ $detailAlat -> tanggal_pengembalian }}"> -->
+                            <input type="text" class="form-control" name="tanggal_pengembalian" value="{{ $detailAlat->tanggal_pengembalian ?? \Carbon\Carbon::now()->addDays(5)->toDateString() }}">
                             <span class="input-group-append">
                                 <span class="input-group-text bg-white d-block">
                                     <i class="fa fa-calendar"></i>
@@ -133,7 +135,9 @@
 <script type="text/javascript">
     (function($) {
         $(document).ready(function() {
-            $('#datepicker, #datepicker1').datepicker();
+            $('#datepicker, #datepicker1').datepicker({
+                format: 'yyyy-mm-dd',
+            });
         });
     })(jQuery);
 </script>
