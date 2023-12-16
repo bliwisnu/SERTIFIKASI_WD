@@ -29,7 +29,7 @@ class SewaController extends Controller
     public function showPeminjamanPage( ) {
         
         $totPeminjaman = PeminjamanModel::latest()->get();
-        return view('test', compact('totPeminjaman'));
+        return view('barang.dataPeminjaman', compact('totPeminjaman'));
         // return view('test');
     }
 
