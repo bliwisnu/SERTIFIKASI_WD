@@ -66,10 +66,10 @@
                         <label for="exampleInputEmail1" class="form-label">Harga Alat</label>
                         <input value="{{ $detailAlat -> harga_alat }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
-                    <!-- <div class="form mb-3">
+                    <div class="form mb-3">
                         <label for="exampleInputEmail1" class="form-label">Tanggal Sewa</label>
                         <div class="input-group date" id="datepicker">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" value="{{ $detailAlat -> tanggal_sewa }}">
                             <span class="input-group-append">
                                 <span class="input-group-text bg-white d-block">
                                     <i class="fa fa-calendar"></i>
@@ -80,14 +80,14 @@
                     <div class="form mb-3">
                         <label for="exampleInputEmail1" class="form-label">Tanggal Pengembalian</label>
                         <div class="input-group date" id="datepicker1">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" value="{{ $detailAlat -> tanggal_pengembalian }}">
                             <span class="input-group-append">
                                 <span class="input-group-text bg-white d-block">
                                     <i class="fa fa-calendar"></i>
                                 </span>
                             </span>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="button-group d-flex justify-content-between">
                         <button type="submit" class="btn w-25 btn-success mt-3">Sewa</button>
                         <a href="/dashboard" class="btn btn-dark w-25 mt-3">Back</a>

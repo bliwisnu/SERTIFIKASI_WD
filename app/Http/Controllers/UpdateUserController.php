@@ -14,7 +14,7 @@ class UpdateUserController extends Controller
         return view('user.EditUser', compact('userData'));
     }
 
-    public function updateProfile($id, Request $request)
+    public function updateUser($id, Request $request)
     {
         $updateProfile = VerifModel::findOrFail($id);
         $updateProfile->update($request->all());
