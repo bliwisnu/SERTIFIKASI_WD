@@ -50,7 +50,7 @@
         <!-- Header -->
         <div class="container-fluid pt-4 px-4">
             <h4 class="header text-center text-light bg-success">
-                <b>DATA PENYEWAAN</b>
+                <b>LIST ORDER</b>
             </h4>
         </div>
         <!-- Sale & Revenue Start -->
@@ -60,10 +60,11 @@
                 <div class="container-fluid pt-4 px-4">
                     <div class="bg-light text-center rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h6 class="mb-0">Sewa Alat</h6>
+                            <h6 class="mb-0"><b>List Order</b></h6>
                             <a href="">Show All</a>
                         </div>
                         <div class="table-responsive">
+                            <!-- Table List Order -->
                             <table class="table text-start align-middle table-bordered table-hover mb-0">
                                 <thead>
                                     <tr class="text-dark">
@@ -71,7 +72,6 @@
                                         <th scope="col">Harga/Hari</th>
                                         <th scope="colengemb">Tanggal Penyewaan</th>
                                         <th scope="col">Tanggal Pengembalian</th>
-                                        <th scope="col">Status</th>
                                     </tr>
                                 </thead>
                                 @foreach ($peminjaman as $sewa)
@@ -81,15 +81,29 @@
                                         <td>{{ $sewa -> table_alat -> harga_alat }}</td>
                                         <td>{{ $sewa -> tanggal_sewa  }}</td>
                                         <td>{{ $sewa -> tanggal_pengembalian  }}</td>
-                                        <td>
-                                            <button class="btn btn-dark" type="sewa" id="sewa">
-                                                {{ $sewa -> status }}
-                                            </button>
-                                        </td>
                                     </tr>
                                 </tbody>
                                 @endforeach
                             </table>
+                            <!-- Table Total Alat & Harga -->
+                            <table class="table text-start table-bordered table-hover mb-0 mt-3">
+                                <thead>
+                                    <tr class="text-dark">
+                                        <th scope="col">Total Alat</th>
+                                        <th scope="col">Total Harga</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>304000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- Print PDF -->
+                            <button class="btn btn-dark mt-5" type="sewa" id="sewa">
+                                Cetak Invoice
+                            </button>
                         </div>
                     </div>
                 </div>

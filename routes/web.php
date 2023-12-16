@@ -59,6 +59,11 @@
             $detailAlat = AlatModel::find($id);
             return view('user.SewaAlat', compact('detailAlat'));
         });
+        Route::get('/listOrder', function () {
+            $peminjaman = PeminjamanModel::all();
+            return view('user.listOrder', compact('peminjaman'));
+        });
+
 
         // Admin & User
         // Route::post('/update-user/{id}', [ProfileController::class,'updateUser']);
