@@ -8,7 +8,7 @@
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-light navbar-light">
             <a href="index.html" class="navbar-brand mx-4 mb-3">
-                <h3 class="text-success"></i>AGRORENT</h3>
+                <h3 class="text-success"></i><b>AGRORENT</b></h3>
             </a>
             <div class="navbar-nav w-100">
                 <a href="/dashboard" class="nav-item nav-link active text-success mb-3"><i class="fa fa-tachometer-alt me-2 text-success"></i>Dashboard</a>
@@ -23,7 +23,7 @@
     <!-- Content Start -->
     <div class="content">
         <!-- Navbar Start -->
-        <nav class="navbar navbar-expand bg-success navbar-light sticky-top px-4 py-0">
+        <nav class="navbar navbar-expand bg-success navbar-light px-4 py-0">
             <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
                 <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
             </a>
@@ -54,7 +54,7 @@
         <!-- Recent Sales Start -->
         <div class="container-fluid pt-4 px-4">
             <div class="bg-light rounded p-4">
-                <h3 class="text-dark mb-5">Sewa Alat</h3>
+                <h3 class="text-dark mb-5"><b>Sewa Alat</b></h3>
                 <form action="/peminjaman/{{ $detailAlat -> id }}" method="POST">
                     @csrf
                     <input value="{{ $detailAlat ->id }}" name="alat_id" type="hidden">
